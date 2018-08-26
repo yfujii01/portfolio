@@ -1,0 +1,27 @@
+<p>
+  <strong>Title:</strong>
+  <%= @item.title %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @item.url %>
+</p>
+
+<p>
+  <strong>Overview:</strong>
+  <%= @item.overview %>
+</p>
+
+<p>
+  <strong>Detail:</strong>
+  <%= @item.detail %>
+</p>
+
+<p>
+  <strong>Public:</strong>
+  <%= @item.public %>
+</p>
+
+<%= link_to 'Edit', edit_item_path(@item) %> |
+<%= link_to 'Back', items_path %>
