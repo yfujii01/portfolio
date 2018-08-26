@@ -60,3 +60,9 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem "devise", "~> 4.5"
+
+gem "devise-i18n", "~> 1.6"
+
+gem "letter_opener", "~> 1.6", :group => [:development]
