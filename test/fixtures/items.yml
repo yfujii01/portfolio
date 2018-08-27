@@ -5,11 +5,19 @@ one:
   url: itle1url
   overview: item1overview
   detail: item1detail
-  public: false
+  public: true
 
 two:
   title: item2title
   url: itle2url
   overview: item2overview
   detail: item2detail
+  public: false
+
+third:
+  title: item3title
+  url: itle3url
+  overview: item3overview
+  detail: item3detail
   public: true
+  user_id: 1
