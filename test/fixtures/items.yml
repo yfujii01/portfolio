@@ -1,15 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
-  url: MyString
-  overview: MyString
-  detail: MyText
+  title: item1title
+  url: itle1url
+  overview: item1overview
+  detail: item1detail
   public: false
 
 two:
-  title: MyString
-  url: MyString
-  overview: MyString
-  detail: MyText
-  public: false
+  title: item2title
+  url: itle2url
+  overview: item2overview
+  detail: item2detail
+  public: true
