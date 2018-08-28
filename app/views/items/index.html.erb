@@ -1,26 +1,30 @@
 <h1>ポートフォリオ</h1>
 
 <% @items.each do |item| %>
-  <ul class="itemul">
-    <% if item.public? %>
-      <li>公</li>
-    <% else %>
-      <li>秘</li>
-    <% end %>
-    <li><%= link_to item.title, item.url, target: "_blank" %></li>
-    <li><%= item.overview %></li>
-  </ul>
-  <ul class="itemul">
-    <li><%= button_to '詳細', item, method: :get %></li>
-    <% if current_user != nil %>
-      <li>
-        <%= button_to '修正', edit_item_path(item), method: :get %>
-      </li>
-      <li>
-        <%= button_to '削除', item, method: :delete, data: { confirm: '削除してもよろしいですか?' } %>
-      </li>
-    <% end %>
-  </ul>
+  <div class="card">
+    <ul class="itemul">
+      <% if item.public? %>
+        <li>公</li>
+      <% else %>
+        <li>秘</li>
+      <% end %>
+      <li><%= link_to item.title, item.url, target: "_blank" %></li>
+    </ul>
+    <ul class="itemul">
+      <li><%= item.overview %></li>
+    </ul>
+    <ul class="itemul">
+      <li><%= button_to '詳細', item, method: :get %></li>
+      <% if current_user != nil %>
+        <li>
+          <%= button_to '修正', edit_item_path(item), method: :get %>
+        </li>
+        <li>
+          <%= button_to '削除', item, method: :delete, data: { confirm: '削除してもよろしいですか?' } %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 <% end %>
 <br>
 <% if current_user != nil %>
