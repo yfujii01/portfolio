@@ -6,8 +6,11 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   def index
-    @items = Item.all
-    # @items = Item.where(user_id: current_user)
+    if current_user != nil
+      @items = Item.all
+    else
+      @items = Item.where(public: true)
+    end
   end
 
   # GET /items/1
@@ -45,8 +48,9 @@ class ItemsController < ApplicationController
   def update
     respond_to do |format|
       if @item.update(item_params)
-        format.html { redirect_to @item, notice: '更新しました' }
-        format.json { render :show, status: :ok, location: @item }
+        format.html { redirect_to root_url, notice: '更新しました' }
+        # format.html { redirect_to @item, notice: '更新しました' }
+        # format.json { render :show, status: :ok, location: @item }
       else
         format.html { render :edit }
         format.json { render json: @item.errors, status: :unprocessable_entity }

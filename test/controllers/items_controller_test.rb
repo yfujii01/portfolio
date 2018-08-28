@@ -45,7 +45,7 @@ class ItemsControllerTest < ActionDispatch::IntegrationTest
   test "should update item" do
     login_as @user
     patch item_url(@item1), params: { item: { detail: @item1.detail, overview: @item1.overview, public: @item1.public, title: @item1.title, url: @item1.url, user: users(:one) } }
-    assert_redirected_to item_url(@item1)
+    assert_redirected_to root_url
   end
 
   test "should destroy item" do

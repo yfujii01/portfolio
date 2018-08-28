@@ -47,7 +47,6 @@ class ItemsTest < ApplicationSystemTestCase
     click_on "更新する"
 
     assert_text "更新しました"
-    click_on "HOMEへ"
   end
 
   test "destroying a Item" do

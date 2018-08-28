@@ -2,6 +2,11 @@
 
 <% @items.each do |item| %>
   <ul class="itemul">
+    <% if item.public? %>
+      <li>公</li>
+    <% else %>
+      <li>秘</li>
+    <% end %>
     <li><%= link_to item.title, item.url, target: "_blank" %></li>
     <li><%= item.overview %></li>
     <li><%= button_to '詳細', item, method: :get %></li>
