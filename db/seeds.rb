@@ -25,3 +25,28 @@ user = User.new(:username => 'ccc',
 )
 user.skip_confirmation!
 user.save
+
+Item.create(
+    :title => 'portfolio1',
+    :url => 'https://f01portfolio.herokuapp.com/',
+    :overview => 'ポートフォリオ管理',
+    :detail => 'ポートフォリオ管理のポートフォリを',
+    :public => true,
+    :user_id => User.first
+)
+Item.create(
+    :title => 'portfolio2',
+    :url => 'https://f01portfolio.herokuapp.com/',
+    :overview => 'ポートフォリオ管理',
+    :detail => 'ポートフォリオ管理のポートフォリを',
+    :public => false,
+    :user_id => User.first
+)
+Item.create(
+    :title => 'portfolio3',
+    :url => 'https://f01portfolio.herokuapp.com/',
+    :overview => 'ポートフォリオ管理',
+    :detail => 'ポートフォリオ管理のポートフォリを',
+    :public => true,
+    :user_id => User.first
+)

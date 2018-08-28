@@ -9,8 +9,9 @@
     <% end %>
     <li><%= link_to item.title, item.url, target: "_blank" %></li>
     <li><%= item.overview %></li>
+  </ul>
+  <ul class="itemul">
     <li><%= button_to '詳細', item, method: :get %></li>
-
     <% if current_user != nil %>
       <li>
         <%= button_to '修正', edit_item_path(item), method: :get %>
