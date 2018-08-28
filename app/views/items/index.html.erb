@@ -21,8 +21,14 @@
       <td><%= item.detail %></td>
       <td><%= item.public %></td>
       <td><%= link_to 'Show', item %></td>
-      <td><%= link_to 'Edit', edit_item_path(item) %></td>
-      <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+      <% if current_user != nil %>
+        <td><%= link_to 'Edit', edit_item_path(item) %></td>
+        <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% else %>
+        <td></td>
+        <td></td>
+      <% end %>
     </tr>
   <% end %>
   </tbody>
@@ -30,4 +36,6 @@
 
 <br>
 
-<%= link_to 'New Item', new_item_path %>
+<% if current_user != nil %>
+  <%= link_to 'New Item', new_item_path %>
+<% end %>

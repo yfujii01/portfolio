@@ -23,5 +23,7 @@
   <%= @item.public %>
 </p>
 
-<%= link_to 'Edit', edit_item_path(@item) %> |
-<%= link_to 'Back', items_path %>
+<% if current_user != nil %>
+  <%= link_to 'Edit', edit_item_path(@item) %> |
+<% end %>
+<%= link_to 'Back', root_url %>

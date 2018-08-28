@@ -1,11 +1,13 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
+  before_action :no_login_redirect, only: [:new, :create, :edit, :update, :destroy]
+
   # GET /items
   # GET /items.json
   def index
-    # @items = Item.all
-    @items = Item.where(user_id: current_user)
+    @items = Item.all
+    # @items = Item.where(user_id: current_user)
   end
 
   # GET /items/1
@@ -29,7 +31,7 @@ class ItemsController < ApplicationController
 
     respond_to do |format|
       if @item.save
-        format.html { redirect_to @item, notice: 'Item was successfully created.' }
+        format.html { redirect_to @item, notice: '作成しました' }
         format.json { render :show, status: :created, location: @item }
       else
         format.html { render :new }
@@ -43,7 +45,7 @@ class ItemsController < ApplicationController
   def update
     respond_to do |format|
       if @item.update(item_params)
-        format.html { redirect_to @item, notice: 'Item was successfully updated.' }
+        format.html { redirect_to @item, notice: '更新しました' }
         format.json { render :show, status: :ok, location: @item }
       else
         format.html { render :edit }
@@ -57,19 +59,27 @@ class ItemsController < ApplicationController
   def destroy
     @item.destroy
     respond_to do |format|
-      format.html { redirect_to items_url, notice: 'Item was successfully destroyed.' }
+      format.html { redirect_to root_url, notice: '削除しました' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_item
-      @item = Item.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def item_params
-      params.require(:item).permit(:title, :url, :overview, :detail, :public, :user_id)
+  # 未ログイン時はrootページへ飛ばす
+  def no_login_redirect
+    if current_user == nil
+      redirect_to root_url
     end
+  end
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_item
+    @item = Item.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def item_params
+    params.require(:item).permit(:title, :url, :overview, :detail, :public, :user_id)
+  end
 end
