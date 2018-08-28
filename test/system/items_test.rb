@@ -9,7 +9,7 @@ class ItemsTest < ApplicationSystemTestCase
 
 
   test "visiting the index" do
-    visit items_url
+    visit root_url
     assert_selector "h1", text: "Items"
   end
 
@@ -17,7 +17,7 @@ class ItemsTest < ApplicationSystemTestCase
     # login
     login_as @user
 
-    visit items_url
+    visit root_url
     click_on "New Item"
 
     fill_in "Detail", with: @item1.detail
@@ -28,7 +28,7 @@ class ItemsTest < ApplicationSystemTestCase
     fill_in "Url", with: @item1.url
     click_on "Create Item"
 
-    assert_text "Item was successfully created"
+    assert_text "作成しました"
     click_on "Back"
   end
 
@@ -36,7 +36,7 @@ class ItemsTest < ApplicationSystemTestCase
     # login
     login_as @user
 
-    visit items_url
+    visit root_url
     click_on "Edit", match: :first
 
     fill_in "Detail", with: @item2.detail
@@ -46,16 +46,17 @@ class ItemsTest < ApplicationSystemTestCase
     fill_in "Url", with: @item2.url
     click_on "Update Item"
 
-    assert_text "Item was successfully updated"
+    assert_text "更新しました"
     click_on "Back"
   end
 
   test "destroying a Item" do
-    visit items_url
+    login_as @user
+    visit root_url
     page.accept_confirm do
       click_on "Destroy", match: :first
     end
 
-    assert_text "Item was successfully destroyed"
+    assert_text "削除しました"
   end
 end

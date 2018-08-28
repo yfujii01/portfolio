@@ -4,11 +4,11 @@ class ItemsControllerTest < ActionDispatch::IntegrationTest
 
   setup do
     @item1 = items(:one)
-    @user = users( :one )
+    @user = users(:one)
   end
 
   test "should get index" do
-    get items_url
+    get root_url
     assert_response :success
   end
 
@@ -21,8 +21,9 @@ class ItemsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create item" do
+    login_as @user
     assert_difference('Item.count') do
-      post items_url, params: { item: { detail: @item1.detail, overview: @item1.overview, public: @item1.public, title: @item1.title, url: @item1.url, user: users(:one) } }
+      post items_url, params: { item: { detail: 'aaa', overview: 'bbb', public: true, title: 'ccc', url: 'https://www.google.com', user: users(:one) } }
     end
 
     assert_redirected_to item_url(Item.last)
@@ -42,15 +43,17 @@ class ItemsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update item" do
+    login_as @user
     patch item_url(@item1), params: { item: { detail: @item1.detail, overview: @item1.overview, public: @item1.public, title: @item1.title, url: @item1.url, user: users(:one) } }
     assert_redirected_to item_url(@item1)
   end
 
   test "should destroy item" do
+    login_as @user
     assert_difference('Item.count', -1) do
       delete item_url(@item1)
     end
 
-    assert_redirected_to items_url
+    assert_redirected_to root_url
   end
 end
