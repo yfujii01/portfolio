@@ -26,10 +26,10 @@ class ItemsTest < ApplicationSystemTestCase
     check "Public" if @item1.public
     fill_in "Title", with: @item1.title
     fill_in "Url", with: @item1.url
-    click_on "Create Item"
+    click_on "登録する"
 
     assert_text "作成しました"
-    click_on "Back"
+    click_on "HOMEへ"
   end
 
   test "updating a Item" do
@@ -44,10 +44,10 @@ class ItemsTest < ApplicationSystemTestCase
     check "Public" if @item2.public
     fill_in "Title", with: @item2.title
     fill_in "Url", with: @item2.url
-    click_on "Update Item"
+    click_on "更新する"
 
     assert_text "更新しました"
-    click_on "Back"
+    click_on "HOMEへ"
   end
 
   test "destroying a Item" do

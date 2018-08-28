@@ -24,6 +24,6 @@
 </p>
 
 <% if current_user != nil %>
-  <%= link_to 'Edit', edit_item_path(@item) %> |
+  <%= button_to '編集する', edit_item_path(@item), method: :get %>
 <% end %>
-<%= link_to 'Back', root_url %>
+<%= button_to 'HOMEへ', root_url, method: :get %>

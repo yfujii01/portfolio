@@ -1,6 +1,6 @@
-<h1>Editing Item</h1>
+<h1>編集</h1>
 
 <%= render 'form', item: @item %>
 
-<%= link_to 'Show', @item %> |
-<%= link_to 'Back', root_url %>
+<%= button_to '確認', @item, method: :get %>
+<%= button_to 'HOMEへ', root_url, method: :get %>
