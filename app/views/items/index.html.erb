@@ -1,41 +1,22 @@
-<h1>Items</h1>
+<h1>ポートフォリオ</h1>
 
-<table>
-  <thead>
-  <tr>
-    <th>Title</th>
-    <th>Url</th>
-    <th>Overview</th>
-    <th>Detail</th>
-    <th>Public</th>
-    <th colspan="3"></th>
-  </tr>
-  </thead>
+<% @items.each do |item| %>
+  <ul class="itemul">
+    <li><%= link_to item.title, item.url, target: "_blank" %></li>
+    <li><%= item.overview %></li>
+    <li><%= button_to '詳細', item, method: :get %></li>
 
-  <tbody>
-  <% @items.each do |item| %>
-    <tr>
-      <td><%= item.title %></td>
-      <td><%= link_to item.url, item.url, target: "_blank" %></td>
-      <td><%= item.overview %></td>
-      <td><%= item.detail %></td>
-      <td><%= item.public %></td>
-      <td><%= link_to 'Show', item %></td>
-
-      <% if current_user != nil %>
-        <td><%= link_to 'Edit', edit_item_path(item) %></td>
-        <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      <% else %>
-        <td></td>
-        <td></td>
-      <% end %>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
-
+    <% if current_user != nil %>
+      <li>
+        <%= button_to '修正', edit_item_path(item), method: :get %>
+      </li>
+      <li>
+        <%= button_to '削除', item, method: :delete, data: { confirm: '削除してもよろしいですか?' } %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
 <br>
-
 <% if current_user != nil %>
-  <%= link_to 'New Item', new_item_path %>
+  <%= button_to '新規作成', new_item_path, method: :get %>
 <% end %>

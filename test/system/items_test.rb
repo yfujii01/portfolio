@@ -10,7 +10,7 @@ class ItemsTest < ApplicationSystemTestCase
 
   test "visiting the index" do
     visit root_url
-    assert_selector "h1", text: "Items"
+    assert_selector "h1", text: "ポートフォリオ"
   end
 
   test "creating a Item" do
@@ -18,7 +18,7 @@ class ItemsTest < ApplicationSystemTestCase
     login_as @user
 
     visit root_url
-    click_on "New Item"
+    click_on "新規作成"
 
     fill_in "Detail", with: @item1.detail
     fill_in "Overview", with: @item1.overview
@@ -37,7 +37,7 @@ class ItemsTest < ApplicationSystemTestCase
     login_as @user
 
     visit root_url
-    click_on "Edit", match: :first
+    click_on "修正", match: :first
 
     fill_in "Detail", with: @item2.detail
     fill_in "Overview", with: @item2.overview
@@ -54,7 +54,7 @@ class ItemsTest < ApplicationSystemTestCase
     login_as @user
     visit root_url
     page.accept_confirm do
-      click_on "Destroy", match: :first
+      click_on "削除", match: :first
     end
 
     assert_text "削除しました"
