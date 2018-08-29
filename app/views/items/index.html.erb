@@ -4,9 +4,10 @@
   <div class="card">
     <ul class="itemul">
       <% if item.public? %>
-        <li>公</li>
       <% else %>
+      <span class="public_mark">
         <li>秘</li>
+      </span>
       <% end %>
       <li><%= link_to item.title, item.url, target: "_blank" %></li>
     </ul>
