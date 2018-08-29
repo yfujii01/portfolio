@@ -34,7 +34,8 @@ class ItemsController < ApplicationController
 
     respond_to do |format|
       if @item.save
-        format.html { redirect_to @item, notice: '作成しました' }
+        # format.html { redirect_to @item, notice: '作成しました' }
+        format.html { redirect_to root_url, notice: '作成しました' }
         format.json { render :show, status: :created, location: @item }
       else
         format.html { render :new }

@@ -8,16 +8,25 @@
   }
 }
 
-.button_to {
+.button_to, .link_to, input[type="submit"] {
   background-color: #bbbbbb;
   border-radius: 10px;
   text-align: center;
+  display: inline-block;
 }
 
-.link_to {
-  background-color: #bbbbbb;
-  border-radius: 10px;
-  text-align: center;
+input[type="text"], input[type="email"], textarea {
+  width: 90%;
+  border: black solid;
+}
+
+.field_with_errors {
+  width: 100%;
+  padding-right: 10px;
+}
+
+textarea {
+  height: 60px;
 }
 
 .card {
@@ -25,4 +34,11 @@
   border: #2E2F30 solid;
   border-radius: 10px;
   margin-bottom: 10px;
+}
+
+@media screen and (min-width: 400px) {
+  /* 表示領域が400px以上の場合に適用するスタイル */
+  .card {
+    width: 400px;
+  }
 }
