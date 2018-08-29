@@ -26,7 +26,8 @@ class ItemsControllerTest < ActionDispatch::IntegrationTest
       post items_url, params: { item: { detail: 'aaa', overview: 'bbb', public: true, title: 'ccc', url: 'https://www.google.com', user: users(:one) } }
     end
 
-    assert_redirected_to item_url(Item.last)
+    assert_redirected_to root_url
+    # assert_redirected_to item_url(Item.last)
   end
 
   test "should show item" do

@@ -29,7 +29,7 @@ class ItemsTest < ApplicationSystemTestCase
     click_on "登録する"
 
     assert_text "作成しました"
-    click_on "HOMEへ"
+    # click_on "HOMEへ"
   end
 
   test "updating a Item" do
