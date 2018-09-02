@@ -1,24 +1,23 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 起動方法
 
-Things you may want to cover:
+$ docker-compose up -d
 
-* Ruby version
+## ログの確認
 
-* System dependencies
+$ docker-compose logs -f
 
-* Configuration
+## 停止
 
-* Database creation
+$ docker-compose stop
 
-* Database initialization
+## 再開
 
-* How to run the test suite
+$ docker-compose start
 
-* Services (job queues, cache servers, search engines, etc.)
+## ユーザー登録について
 
-* Deployment instructions
+/app/models/user.rb
 
-* ...
+:registerableををコメントアウトしているため、新規追加はできなくしている

@@ -1,0 +1,14 @@
+r:
+  image: rails:5
+  working_dir: /usr/src/app
+  volumes:
+    - ".:/usr/src/app"
+  ports:
+    - "3000:3000"
+  entrypoint: bash -c "bundle install && rails s"
+# r:
+#   build: .
+#   volumes:
+#     - ".:/usr/src/app"
+#   ports:
+#     - "3000:3000"
