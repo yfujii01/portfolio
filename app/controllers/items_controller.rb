@@ -21,6 +21,13 @@ class ItemsController < ApplicationController
   # GET /items/new
   def new
     @item = Item.new
+    @item.detail = '[詳細]
+・言語/フレームワーク
+
+・ソース管理：
+
+・デプロイ先
+'
   end
 
   # GET /items/1/edit
