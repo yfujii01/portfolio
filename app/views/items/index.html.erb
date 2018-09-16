@@ -7,16 +7,10 @@
 <% @items.each do |item| %>
   <div class="card">
     <ul class="itemul">
-      <% if item.public? %>
-      <% else %>
-      <span class="public_mark">
-        <li>秘</li>
-      </span>
-      <% end %>
       <li><%= link_to item.title, item.url, target: "_blank" %></li>
     </ul>
     <ul class="itemul">
-      <li><%= item.overview %></li>
+      <li><%= item.getDetailTextView %></li>
     </ul>
     <ul class="itemul">
       <li><%= button_to '詳細', item, method: :get %></li>
@@ -27,7 +21,14 @@
         <li>
           <%= button_to '削除', item, method: :delete, data: { confirm: '削除してもよろしいですか?' } %>
         </li>
-      <% end %>
+        <% if item.public? %>
+        <% else %>
+      <span class="public_mark">
+        <li>秘</li>
+      </span>
+        <% end %>
+
+    <% end %>
     </ul>
   </div>
 <% end %>
