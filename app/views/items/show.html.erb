@@ -24,6 +24,16 @@
   <%= @item.public %>
 </p>
 
+<p>
+  <strong>作成日時:</strong>
+  <%= @item.created_at.in_time_zone('Tokyo') %>
+</p>
+
+<p>
+  <strong>更新日時:</strong>
+  <%= @item.updated_at.in_time_zone('Tokyo') %>
+</p>
+
 <% if current_user != nil %>
   <%= button_to '編集する', edit_item_path(@item), method: :get %>
 <% end %>
