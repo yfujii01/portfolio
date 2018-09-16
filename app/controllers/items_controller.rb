@@ -7,7 +7,7 @@ class ItemsController < ApplicationController
   # GET /items.json
   def index
     if current_user != nil
-      @items = Item.all
+      @items = Item.all.order("updated_at DESC")
     else
       @items = Item.where(public: true)
     end
