@@ -1,37 +1,50 @@
 <p>
   <strong>Title:</strong>
+<div class="box">
   <%= @item.title %>
+</div>
 </p>
 
 <p>
   <strong>Url:</strong>
+<div class="box">
   <%= @item.url %>
+</div>
 </p>
 
 <p>
   <strong>Overview:</strong>
+<div class="box">
   <%= @item.overview %>
+</div>
 </p>
 
 <p>
   <strong>Detail:</strong>
-  <br />
+<div class="box">
   <%= @item.getDetailTextView %>
+</div>
 </p>
 
 <p>
   <strong>Public:</strong>
+<div class="box">
   <%= @item.public %>
+</div>
 </p>
 
 <p>
   <strong>作成日時:</strong>
+<div class="box">
   <%= @item.created_at.in_time_zone('Tokyo') %>
+</div>
 </p>
 
 <p>
   <strong>更新日時:</strong>
+<div class="box">
   <%= @item.updated_at.in_time_zone('Tokyo') %>
+</div>
 </p>
 
 <% if current_user != nil %>

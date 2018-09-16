@@ -30,13 +30,13 @@
   display: inline-block;
 }
 
-input[type="text"], input[type="email"], textarea {
-  width: 90%;
+input[type="text"], input[type="email"], input[type="password"], textarea {
+  width: 400px;
   border: black solid;
 }
 
 .field_with_errors {
-  width: 100%;
+  width: 400px;
   padding-right: 10px;
 }
 
@@ -49,6 +49,14 @@ textarea {
   border: #2E2F30 solid;
   border-radius: 10px;
   margin-bottom: 10px;
+}
+
+.box {
+  position: relative;
+  border: solid 1px;
+  width: 400px;
+  left: 10px;
+  padding: 5px;
 }
 
 @media screen and (min-width: 400px) {
