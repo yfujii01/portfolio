@@ -1,5 +1,9 @@
 <h1>ポートフォリオ</h1>
-
+<% if current_user != nil %>
+  <%= button_to '新規作成', new_item_path, method: :get %>
+<% end %>
+<br />
+<br />
 <% @items.each do |item| %>
   <div class="card">
     <ul class="itemul">
@@ -26,8 +30,4 @@
       <% end %>
     </ul>
   </div>
-<% end %>
-<br>
-<% if current_user != nil %>
-  <%= button_to '新規作成', new_item_path, method: :get %>
 <% end %>
